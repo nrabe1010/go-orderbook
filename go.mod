@@ -1,4 +1,4 @@
-module github.com/danielgatis/go-orderbook
+module github.com/nrabe1010/go-orderbook
 
 go 1.17
 
