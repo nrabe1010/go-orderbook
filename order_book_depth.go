@@ -6,11 +6,11 @@ func (ob *OrderBook) Depth() *Depth {
 	ob.RLock()
 
 	asks := make([]*PriceLevel, 0)
-	level := ob.asks.MaxPriceQueue()
+	level := ob.asks.MinPriceQueue()
 
 	for level != nil {
 		asks = append(asks, NewPriceLevel(level.price, level.amount))
-		level = ob.asks.LessThan(level.price)
+		level = ob.asks.GreaterThan(level.price)
 	}
 
 	bids := make([]*PriceLevel, 0)
